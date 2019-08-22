@@ -1,0 +1,28 @@
+<h2>My Heroes</h2>
+<!-- 添加英雄 -->
+<div>
+    <label>Hero Name:
+        <input #heroName>
+    </label>
+    <button (click)="add(heroName.value); heroName.value ==''">
+        add
+    </button>
+</div>
+
+
+<ul class="heroes">
+    <li *ngFor="let hero of heroes">
+        <a routerLink="/hero-detail/{{hero.id}}">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+        <button class="delete" title="delete hero"
+            (click)="delete(hero)">x</button>
+        <!-- <span class="badge">{{hero.id}}</span>{{hero.name}} -->
+       
+    </li>
+    
+    <!-- 如果当前行的英雄和 selectedHero 相同，
+        Angular 就会添加 CSS 类 selected，否则就会移除它。 -->
+</ul>
+
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
